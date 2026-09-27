@@ -1,6 +1,6 @@
 const form=document.querySelector('#compatibility-form'),firstInput=document.querySelector('#first-name'),secondInput=document.querySelector('#second-name'),errorMessage=document.querySelector('#error-message'),result=document.querySelector('#result');
-// 한글 바르게 쓰기 필순을 기준으로 한 자모 획수표입니다. (예: ㅣ = 1획)
-const strokes={initial:[2,4,2,3,6,5,4,4,8,2,4,1,3,6,4,3,4,4,3],medial:[2,3,3,4,2,3,3,4,2,4,5,3,3,2,4,5,3,3,1,2,1],final:[0,2,4,4,2,5,5,3,5,7,9,9,7,8,9,8,4,4,6,2,4,1,3,4,3,4,4,3]};
+// 자모를 한 번에 긋는 선의 수로 세는 획수표입니다. (예: ㄱ=1, ㄴ=1, ㅣ=1, ㅁ=3)
+const strokes={initial:[1,2,1,2,4,3,3,4,8,1,2,1,3,6,4,2,3,4,3],medial:[2,3,3,4,2,3,3,4,2,4,5,3,3,2,4,5,3,3,1,2,1],final:[0,1,2,2,1,4,4,2,3,4,6,7,4,5,7,6,3,4,5,1,2,1,3,4,2,3,4,3]};
 function isKoreanName(name){return /^[가-힣]{2,6}$/.test(name)}
 function getNameStrokes(name){const values=[];for(const character of name){const code=character.charCodeAt(0)-0xac00,initial=Math.floor(code/588),medial=Math.floor(code%588/28),final=code%28;values.push(strokes.initial[initial]+strokes.medial[medial]+strokes.final[final])}return values}
 function alternateValues(first,second){const combined=[];for(let i=0;i<Math.max(first.length,second.length);i+=1){if(first[i]!==undefined)combined.push(first[i]);if(second[i]!==undefined)combined.push(second[i])}return combined}
