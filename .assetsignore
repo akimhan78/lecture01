@@ -1,2 +1,4 @@
-.git
-.git/**
+*
+!index.html
+!styles.css
+!app.js
