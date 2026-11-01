@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-28",
+  "grid_count": 8564,
+  "library_count": 213,
+  "dong_count": 427,
+  "overall_reach_pct": 26.687449104357523,
+  "overall_reach_lower_pct": 26.688893187758016,
+  "overall_reach_upper_pct": 26.68600524812946,
+  "zero_dong_count": 88,
+  "zero_dong_share_pct": 20.60889929742389,
+  "zero_dong_population_share_pct": 16.518736640760917,
+  "gravity_mean": 0.8919309077079147,
+  "gravity_median": 0.8082489870495542,
+  "reach_mean": 27.20248255941078,
+  "reach_median": 22.533604019714105,
+  "correlation": 0.6869620369165399,
+  "bbox": [
+    935186.006847784,
+    1936739.1496000236,
+    972046.1952999986,
+    1966943.625500012
+  ],
+  "top_reach": [
+    {
+      "emdnm": "돈암2동",
+      "population_within_10min_pct": 100.0,
+      "population_weighted_gravity": 2.1946101153824578
+    },
+    {
+      "emdnm": "화곡3동",
+      "population_within_10min_pct": 99.95267699402396,
+      "population_weighted_gravity": 1.254840955210289
+    },
+    {
+      "emdnm": "신월5동",
+      "population_within_10min_pct": 99.60833228114882,
+      "population_weighted_gravity": 1.0591855995510204
+    },
+    {
+      "emdnm": "숭인2동",
+      "population_within_10min_pct": 99.48762296310403,
+      "population_weighted_gravity": 2.0742176967435353
+    },
+    {
+      "emdnm": "송천동",
+      "population_within_10min_pct": 98.48954973477312,
+      "population_weighted_gravity": 2.7139669301331644
+    }
+  ],
+  "bottom_reach": [
+    {
+      "emdnm": "오류2동",
+      "population_within_10min_pct": 0.0037329056253021316,
+      "population_weighted_gravity": 0.12178788419672915
+    },
+    {
+      "emdnm": "가락본동",
+      "population_within_10min_pct": 0.006549934266444525,
+      "population_weighted_gravity": 0.3327381582186042
+    },
+    {
+      "emdnm": "북가좌1동",
+      "population_within_10min_pct": 0.02427813038747157,
+      "population_weighted_gravity": 0.5635684105684308
+    },
+    {
+      "emdnm": "갈현2동",
+      "population_within_10min_pct": 0.027953176788175736,
+      "population_weighted_gravity": 0.5832667855522534
+    },
+    {
+      "emdnm": "자양1동",
+      "population_within_10min_pct": 0.028084340858034542,
+      "population_weighted_gravity": 0.5930487984744389
+    }
+  ],
+  "top_gravity": [
+    {
+      "emdnm": "송천동",
+      "population_within_10min_pct": 98.48954973477312,
+      "population_weighted_gravity": 2.7139669301331644
+    },
+    {
+      "emdnm": "구로5동",
+      "population_within_10min_pct": 80.55795540721306,
+      "population_weighted_gravity": 2.5864287012020943
+    },
+    {
+      "emdnm": "청구동",
+      "population_within_10min_pct": 77.30633799105557,
+      "population_weighted_gravity": 2.4800093068952878
+    },
+    {
+      "emdnm": "정릉1동",
+      "population_within_10min_pct": 63.335242885984954,
+      "population_weighted_gravity": 2.4548084456286734
+    },
+    {
+      "emdnm": "길음2동",
+      "population_within_10min_pct": 81.31839969112876,
+      "population_weighted_gravity": 2.4297460137170837
+    }
+  ]
+}
