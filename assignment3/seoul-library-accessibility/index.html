@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f2ec">
+  <meta name="description" content="서울시 250m 생활인구와 공공도서관 보행 접근성 분석">
+  <title>서울시 공공도서관 보행 접근성 분석</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="#top" aria-label="처음으로"><span class="mark">S</span><span>SEOUL<br><b>DATA REPORT</b></span></a>
+    <div class="topmeta"><span>도시 지표 분석</span><span class="topdot"></span><span>2026.10.28 기준</span></div>
+    <a class="toplink" href="#method">분석 방법 <span aria-hidden="true">↘</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span>250M GRID · PUBLIC LIBRARIES · WALKING ACCESS</p>
+        <h1>서울시 공공도서관<br><em>보행 접근성 분석</em></h1>
+        <p class="dek">2026년 10월 28일 서울시 250m 격자 생활인구를 기준으로, 공공도서관까지의 보행 접근성을 격자와 행정동별로 산출했습니다.</p>
+        <p class="research-question"><span>연구 질문</span> 서울시 생활인구의 공공도서관 보행 접근성은 격자와 행정동별로 어떻게 다릅니까?</p>
+        <a class="scroll-cue" href="#explore"><span>분석 결과 보기</span><b>↓</b></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+        <div class="hero-node node-center"><span>10′</span><small>도보권</small></div>
+        <div class="hero-node node-one"><i></i></div><div class="hero-node node-two"><i></i></div><div class="hero-node node-three"><i></i></div>
+        <div class="art-caption">도서관 위치<br>생활인구 격자</div>
+        <div class="north-mark">N<br>↑</div>
+      </div>
+    </section>
+
+    <section class="metric-strip" aria-label="핵심 지표">
+      <article class="metric-card metric-primary"><div class="metric-label"><span>01</span> 서울 전체 10분 도달률</div><div class="metric-value"><strong id="kpi-reach">26.7</strong><span>%</span></div><p>생활인구 가중 기준 · 하루 평균</p><div class="metric-foot"><span class="tiny-line"></span> 가장 가까운 도서관까지 보행 10분</div></article>
+      <article class="metric-card"><div class="metric-label"><span>02</span> 10분 도달 격자 없는 동</div><div class="metric-value"><strong id="kpi-zero">88</strong><small>개 동</small></div><p><span id="kpi-zero-share">20.6</span>%의 행정동에서 도달 격자가 없음</p><div class="metric-foot"><span class="status-dot"></span> 해당 동 생활인구 비중 <b id="kpi-zero-pop">16.5%</b></div></article>
+      <article class="metric-card"><div class="metric-label"><span>03</span> 중력형 접근성 평균</div><div class="metric-value"><strong id="kpi-gravity">0.892</strong></div><p>30분 이내 도서관별 거리감쇠 점수의 합</p><div class="metric-foot"><span class="tiny-line green"></span> 행정동별 점수 평균</div></article>
+      <article class="metric-card"><div class="metric-label"><span>04</span> 분석 범위</div><div class="metric-value"><strong>427</strong><small>개 동</small></div><p>250m 격자 8,564개 · 도서관 위치 213곳</p><div class="metric-foot"><span class="status-dot"></span> 생활인구 기준일 2026.10.28</div></article>
+    </section>
+
+    <section class="explore section-shell" id="explore">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span class="eyebrow-line"></span>01 — SPATIAL DISTRIBUTION</p><h2>행정동별 접근성 분포</h2></div>
+        <p class="section-intro">행정동을 선택하거나 마우스를 올려 지표값을 확인할 수 있습니다.<br>지표를 변경하면 지도와 순위가 함께 갱신됩니다.</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="panel map-panel">
+          <div class="panel-head">
+            <div><span class="panel-kicker">SEOUL · 427 ADMINISTRATIVE DONGS</span><h3 id="map-title">10분 이내 도달 생활인구</h3></div>
+            <div class="segmented" role="group" aria-label="지도 지표 선택">
+              <button class="metric-toggle active" data-metric="reach" aria-pressed="true">10분 도달률</button>
+              <button class="metric-toggle" data-metric="gravity" aria-pressed="false">중력형 접근성</button>
+            </div>
+          </div>
+          <div class="map-stage">
+            <svg id="city-map" viewBox="0 0 1000 800" role="img" aria-label="서울 행정동별 도서관 접근성 지도"><g id="map-polygons"></g><g id="map-libraries"></g></svg>
+            <div class="map-label map-label-north">N <span>↑</span></div>
+            <div class="map-loading" id="map-loading">지도 자료를 불러오는 중</div>
+          </div>
+          <div class="map-footer">
+            <div class="legend"><div class="legend-title" id="legend-title">10분 이내 도달률</div><div class="legend-ramp" id="legend-ramp"></div><div class="legend-ticks" id="legend-ticks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div>
+            <label class="overlay-control"><input id="library-toggle" type="checkbox"><span class="checkmark"></span> 도서관 위치 표시</label>
+          </div>
+          <p class="map-note"><span class="note-dot"></span> 색이 진할수록 지표값이 높습니다. 행정동을 선택하면 순위와 산점도에서 해당 지역을 강조합니다.</p>
+        </article>
+
+        <aside class="panel detail-panel">
+          <div class="panel-kicker">LOCAL READOUT <span class="live-dot"></span></div>
+          <div class="selected-name" id="selected-name">서울시 전체</div>
+          <p class="selected-sub" id="selected-sub">동을 선택하면 해당 지역의 지표를 확인할 수 있습니다.</p>
+          <div class="detail-stats">
+            <div class="detail-stat"><span>10분 이내 도달률</span><strong id="selected-reach">26.7%</strong></div>
+            <div class="detail-stat"><span>중력형 접근성</span><strong id="selected-gravity">0.892</strong></div>
+            <div class="detail-stat"><span>24시간 평균 생활인구</span><strong id="selected-pop">—</strong></div>
+          </div>
+          <div class="rank-divider"></div>
+          <div class="rank-head"><div><span class="panel-kicker">DONG RANKING</span><h3 id="rank-title">도달률이 낮은 동</h3></div><div class="rank-switch"><button data-rank="low" class="rank-toggle active" aria-pressed="true">낮은 순</button><button data-rank="high" class="rank-toggle" aria-pressed="false">높은 순</button></div></div>
+          <div class="rank-list" id="rank-list" role="list"></div>
+          <div class="rank-foot"><span class="rank-dot"></span><span>0%인 동 88곳은 별도 집계에 포함했습니다.</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="relationship section-shell">
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow"><span class="eyebrow-line"></span>02 — INDICATOR COMPARISON</p><h2>10분 도달률과 중력형 지표 비교</h2></div>
+        <p class="section-intro">기준시간 안에 도달 가능한 생활인구 비율과<br>주변 도서관의 거리감쇠 점수를 비교합니다.</p>
+      </div>
+      <article class="panel scatter-panel">
+        <div class="scatter-head"><div><span class="panel-kicker">427 ADMINISTRATIVE DONGS</span><h3>10분 도달률과 중력형 접근성</h3></div><div class="scatter-correlation"><span>상관계수</span><strong id="correlation">0.687</strong></div></div>
+        <div class="scatter-wrap"><svg id="scatter" viewBox="0 0 960 420" role="img" aria-label="행정동별 10분 도달률과 중력형 접근성 산점도"></svg></div>
+        <div class="scatter-caption"><span><i class="scatter-dot"></i>각 점은 행정동, 크기는 생활인구를 나타냅니다</span><span>동일한 행정동을 선택하면 지도에서 강조됩니다 ↗</span></div>
+      </article>
+      <div class="insight-row">
+        <div class="insight-index">지표<br>비교</div>
+        <p><b>두 지표는 서로 다른 접근성 조건을 측정합니다.</b> 10분 도달률은 기준시간 안에 도달 가능한 생활인구 비율입니다. 중력형 지표는 30분 이내 여러 도서관의 기여도를 합산합니다. 사근동은 10분 도달률 4.9%, 중력형 점수 0.984로 지표 간 차이가 나타납니다.</p>
+        <span class="insight-arrow" aria-hidden="true">↗</span>
+      </div>
+    </section>
+
+    <section class="results section-shell">
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow"><span class="eyebrow-line"></span>03 — FINDINGS</p><h2>주요 결과와 해석</h2></div>
+        <p class="section-intro">공간 분포와 행정동별 지표를 함께 비교해<br>접근성 차이를 요약했습니다.</p>
+      </div>
+      <div class="results-grid">
+        <article class="result-card result-highlight"><span class="result-index">01 / 10-MINUTE REACH</span><h3>서울 전체 생활인구의<br><b>26.69%</b>가 10분 안에 도달</h3><p>427개 동 중 88개 동에서는 10분 이내 도달 격자가 확인되지 않았습니다. 해당 동의 생활인구는 전체의 16.5%입니다.</p></article>
+        <article class="result-card"><span class="result-index">02 / HIGHER ACCESS</span><h3>도달률이 높은 행정동</h3><ul class="result-list"><li><span>돈암2동</span><b>100.0%</b></li><li><span>화곡3동</span><b>99.95%</b></li><li><span>신월5동</span><b>99.61%</b></li><li><span>숭인2동</span><b>99.49%</b></li><li><span>송천동</span><b>98.49%</b></li></ul><p class="result-footnote">북동부와 서남부 등 여러 생활권에서 높은 값이 나타납니다.</p></article>
+        <article class="result-card"><span class="result-index">03 / LOWER ACCESS</span><h3>도달률이 낮은 행정동</h3><ul class="result-list"><li><span>오류2동</span><b>0.004%</b></li><li><span>가락본동</span><b>0.007%</b></li><li><span>북가좌1동</span><b>0.024%</b></li><li><span>갈현2동</span><b>0.028%</b></li><li><span>자양1동</span><b>0.028%</b></li></ul><p class="result-footnote">0%인 동은 위 목록에 포함하지 않았습니다.</p></article>
+      </div>
+      <div class="interpretation"><span class="interpretation-tag">공간 해석</span><p>높은 접근성은 한 곳의 도심에만 모이지 않고 여러 생활권에 분포합니다. 낮은 값도 외곽 지역뿐 아니라 도심의 일부 소규모 행정동에서 관찰됩니다. 이는 행정동의 중심성이나 면적만으로 접근성 차이를 설명하기 어렵고, 생활인구 분포와 도서관 위치의 조합을 함께 볼 필요가 있음을 보여줍니다. 다만 이 지도만으로 지역 차이의 원인을 단정할 수는 없습니다.</p></div>
+    </section>
+
+    <section class="reading section-shell" id="method">
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow"><span class="eyebrow-line"></span>04 — METHODS & DATA</p><h2>지표 정의와 분석 자료</h2></div>
+        <p class="section-intro">250m 격자를 분석 단위로 사용하고<br>행정동 단위로 결과를 집계했습니다.</p>
+      </div>
+      <div class="method-grid">
+        <article class="method-card"><span class="method-number">01 / 도달 비율</span><h3>10분 이내 도달 생활인구</h3><div class="formula">100 × Σ(Pᵢ · I[tᵢ ≤ 10])<br><span>÷ ΣPᵢ</span></div><p><b>분석 단위</b> 250m 격자 · <b>보고 단위</b> 행정동<br><b>Pᵢ</b>는 격자 24시간 평균 생활인구, <b>tᵢ</b>는 격자 중심에서 가장 가까운 도서관까지의 최단 보행시간(분), <b>I</b>는 조건을 만족할 때 1인 지시함수입니다. 값이 높을수록 10분 내 도달 가능한 생활인구 비중이 큽니다.</p></article>
+        <article class="method-card"><span class="method-number">02 / 중력형 접근성</span><h3>거리감쇠를 적용한 도서관 접근성</h3><div class="formula">Aᵢ = Σⱼ[Sⱼ · exp(−βtᵢⱼ)]<br><span>Sⱼ = 1 · β = ln(2)/10 · 0 ≤ tᵢⱼ ≤ 30분</span></div><p><b>tᵢⱼ</b>는 격자 i에서 도서관 j까지의 최단 보행시간(분), <b>Sⱼ</b>는 도서관 공급 가중치(모두 1), <b>β</b>는 거리감쇠 계수입니다. 10분 거리는 0.5만큼 기여합니다. 격자별 점수 Aᵢ를 생활인구로 가중해 행정동 평균을 계산합니다. 높을수록 가까운 도서관이 많거나 거리가 짧습니다. 분석 단위는 250m 격자, 보고 단위는 행정동입니다.</p></article>
+        <article class="method-card method-source"><span class="method-number">DATA / PROCESS</span><h3>자료와 전처리</h3><ul><li>서울시 250m 생활인구 격자 · 2026.10.28</li><li>도서관 217행 → 좌표 중복 제거 후 213곳</li><li>admdongkor 행정동 경계 · 2026.10.01 · 427개 동</li><li>OSM 보행망 · EPSG:5179 · 도보속도 4km/h</li><li>누락된 840개 격자-시간은 0명으로 처리</li><li>비식별 `*`는 0·1.5·3명으로 민감도 비교</li></ul><a class="download-link" href="제출요약.md" download>과제 제출 요약 다운로드 <span>↗</span></a><br><a class="download-link" href="data/dong_accessibility.csv" download>행정동별 결과표 다운로드 <span>↗</span></a></article>
+      </div>
+      <div class="limitations"><span class="limit-mark">!</span><p><b>해석 범위</b> 도서관 규모·운영시간, 출입구 위치, 경사·횡단보도 등 현장 보행조건은 반영하지 않았습니다. 생활인구는 하루 자료라 계절이나 요일 차이를 일반화할 수 없습니다. 이 결과는 접근성의 공간 분포를 보여주며 그 원인을 단독으로 증명하지는 않습니다.</p></div>
+      <div class="sensitivity"><span>비식별값 민감도</span><div class="sensitivity-values"><b>26.689%</b><span>0명 처리</span><i></i><b>26.687%</b><span>1.5명 처리</span><i></i><b>26.686%</b><span>3명 처리</span></div><p>서울 전체 10분 도달률의 변화는 0.003%p 이내입니다.</p></div>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="wordmark footer-mark" href="#top"><span class="mark">S</span><span>SEOUL<br><b>DATA REPORT</b></span></a><p>서울시 공공도서관 보행 접근성 분석<br><span>도시 현상 지표 분석 · 과제 3</span></p><a href="#top" class="back-top">맨 위로 ↑</a></footer>
+  <div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
